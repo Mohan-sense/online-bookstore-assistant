@@ -131,8 +131,7 @@ def review_analysis(book_title):
 def detect_intent(message):
 
     message = message.lower()
-
-        if any(word in message for word in ["hello", "hi", "hey", "good morning"]):
+if any(word in message for word in ["hello", "hi", "hey", "good morning"]):
         return "GREETING"
 
     elif any(word in message for word in ["bye", "goodbye", "exit", "quit"]):
