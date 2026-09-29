@@ -276,6 +276,13 @@ def chatbot_response(message, conversation):
     elif intent == "GOODBYE":
 
         return "Thank you for using the Online Bookstore Assistant. Goodbye!"
+        
+    elif intent == "REVIEW":
+
+    if "Book" not in conversation:
+        return "Sure! Which book would you like to see customer reviews for?"
+
+    return review_analysis(conversation["Book"])
 
     elif intent == "RECOMMENDATION":
 
