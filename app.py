@@ -853,21 +853,4 @@ for message in st.session_state.messages:
 
 user_input = st.chat_input("Type your message here...")
 
-if user_input:
-
-    st.session_state.messages.append({
-        "role": "user",
-        "content": user_input
-    })
-
-    response = chatbot_response(
-        user_input,
-        st.session_state.conversation
-    )
-
-    st.session_state.messages.append({
-        "role": "assistant",
-        "content": response
-    })
-
-    st.rerun()
+st.rerun()
