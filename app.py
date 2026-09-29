@@ -398,7 +398,7 @@ if user_input:
         "content": response
     })
 
-    st.rerun()import streamlit as st
+ st.rerun()
 
 # --------------------------------------------
 # PAGE SETTINGS
