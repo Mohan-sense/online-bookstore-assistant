@@ -138,6 +138,9 @@ def detect_intent(message):
     elif any(word in message for word in ["bye", "goodbye", "exit", "quit"]):
         return "GOODBYE"
 
+    elif any(word in message for word in ["review", "reviews", "rating", "sentiment"]):
+    return "REVIEW"
+
     elif any(word in message for word in ["recommend", "suggest"]):
         return "RECOMMENDATION"
 
