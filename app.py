@@ -59,7 +59,70 @@ books = [
         "availability": "Out of Stock"
     }
 ]
+# --------------------------------------------
+# CUSTOMER REVIEWS
+# --------------------------------------------
 
+reviews = {
+    "Harry Potter and the Philosopher's Stone": [
+        "Amazing book, very enjoyable and exciting.",
+        "Great story and excellent writing."
+    ],
+    "The Alchemist": [
+        "Beautiful and inspiring story.",
+        "The book was slow and boring in some parts."
+    ],
+    "Atomic Habits": [
+        "Very useful and practical book.",
+        "Excellent book for building good habits."
+    ],
+    "Wings of Fire": [
+        "Very inspiring and motivating.",
+        "Good book with an interesting life story."
+    ],
+    "The Hobbit": [
+        "Fantastic adventure and great storytelling.",
+        "I really enjoyed this book."
+    ]
+}
+
+
+def analyze_sentiment(review):
+    positive_words = [
+        "amazing", "great", "excellent", "beautiful",
+        "inspiring", "useful", "practical", "fantastic",
+        "enjoyable", "good", "interesting", "motivating"
+    ]
+
+    negative_words = [
+        "bad", "boring", "poor", "worst",
+        "disappointing", "slow", "terrible"
+    ]
+
+    words = review.lower().split()
+
+    positive_count = sum(word.strip(".,!?") in positive_words for word in words)
+    negative_count = sum(word.strip(".,!?") in negative_words for word in words)
+
+    if positive_count > negative_count:
+        return "Positive"
+    elif negative_count > positive_count:
+        return "Negative"
+    else:
+        return "Neutral"
+
+
+def review_analysis(book_title):
+    if book_title not in reviews:
+        return "Sorry, I could not find reviews for that book."
+
+    response = f"Customer reviews for '{book_title}':\n\n"
+
+    for review in reviews[book_title]:
+        sentiment = analyze_sentiment(review)
+        response += f"• {review}\nSentiment: {sentiment}\n\n"
+
+    return response
 
 # --------------------------------------------
 # INTENT DETECTION
